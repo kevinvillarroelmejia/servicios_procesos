@@ -14,8 +14,9 @@ public class LlamarLeerNombre {
 		
 		// 0.- Ruta donde está compilado el hijo y clase a ejecutar
 		/* Llamamos al otro programa pasando una ruta realtiva */	
-		File directorio=new File("/bin");
-		ProcessBuilder pb=new ProcessBuilder("java","package_LlamarLeerNombre.LlamarLeerNombre");
+		File directorio=new File("bin");
+		//TODO direccion del hijo al que vamos a llamar
+		ProcessBuilder pb=new ProcessBuilder("java","package_LeerNombre.LeerNombre");
 	   //se establece el directorio donde se encuentra el ejecutable
 		pb.directory(directorio);
 		
@@ -40,6 +41,7 @@ public class LlamarLeerNombre {
 
 			// 4.- Si ha ido bien, recogemos y pintamos el número de vocales
 			if (exitVal == 0) {
+				//RECOGEMOS EL SYSO DEL HIJO
 				Scanner salida = new Scanner(p.getInputStream());
 				if (salida.hasNextLine()) {
 					System.out.println("Número de vocales: " + salida.nextLine());

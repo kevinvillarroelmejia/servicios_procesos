@@ -1,6 +1,5 @@
 package package_LeerNombre;
 
-import java.io.File;
 import java.util.Scanner;
 
 public class LeerNombre {
@@ -12,8 +11,8 @@ public class LeerNombre {
 		
 		
 		int numeroVocales=0;
-		if(nombre.length()<3) {
-			//si es menor que 3 digitos ERROR
+		if(nombre.trim().length()<3) {
+			//si es menor que 3 caracteres = ERROR
 			System.exit(-1);
 		}else {
 			for(int i=0;i<nombre.length();i++) {
@@ -26,5 +25,4 @@ public class LeerNombre {
 			System.exit(0);
 		}
 	}
-
 }
