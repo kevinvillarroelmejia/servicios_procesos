@@ -1,7 +1,5 @@
 package Hijo;
 
-import java.util.Scanner;
-
 public class Ejercicio1_Hijo {
 
 	public static void main(String[] args) {
