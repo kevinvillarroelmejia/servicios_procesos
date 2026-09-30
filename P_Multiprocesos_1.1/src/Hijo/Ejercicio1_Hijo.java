@@ -19,7 +19,7 @@ public class Ejercicio1_Hijo {
 		
 		
 		//comprueba si esta vacio Y si no envio NADA
-		if(args.length ==0 || args[0].isEmpty()) {
+		if(args.length == 0 || args[0].isEmpty()) {
 			System.exit(-1);
 		}else {
 			try {
@@ -32,6 +32,7 @@ public class Ejercicio1_Hijo {
 			    	System.exit(-4);
 			    }
 			} catch (NumberFormatException e) {
+				//NO ES ENTERO
 			    System.exit(-2);
 			}
 		}
