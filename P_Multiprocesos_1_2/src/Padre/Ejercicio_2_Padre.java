@@ -33,7 +33,6 @@ public class Ejercicio_2_Padre {
 		ArrayList<String> entradaAceptadas = new ArrayList<String>();
 
 		do {
-
 			System.out.println("===NUMERO, LETRA, SALIR --> * === ");
 			entrada = teclado.nextLine();
 			if (!entrada.equals("*")) {
@@ -46,7 +45,6 @@ public class Ejercicio_2_Padre {
 		ProcessBuilder pb = new ProcessBuilder("java", "Hijo.Ejercicio_2_Hijo");
 		pb.directory(directorio);
 		try {
-
 			// comprobacion si el ArraList esta vacio
 			if (entradaAceptadas.size() > 1) {
 				// SI ENTRA AQUI = el arrayList no esta vacio
