@@ -59,9 +59,12 @@ public class Ejercicio_2_Padre {
 				int exitVal=p.waitFor();
 				System.out.println("exitVal= "+exitVal);
 				if(exitVal==0) {
+					for(String s:entradaAceptadas) {
+						System.out.println(s);
+					}
 					//Leemos la respuesta del hijo con un nuevo Scanner
 					Scanner leerHijo=new Scanner(p.getInputStream());
-					System.out.println(leerHijo.nextLine());
+					System.out.println("Suma total: "+leerHijo.nextLine());
 				}else if(exitVal==-1){
 					System.out.println("Se metio algo que no es un numero");
 				}
