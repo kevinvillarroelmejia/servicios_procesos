@@ -38,6 +38,13 @@ public class Ejercicio1_Padre {
 		// MOSTRAMOS EL CODIGO RECIBIDO POR EL HIJO
 		System.out.println("Valor de salida: " + exitVal);
 
+		
+//		//Mientras haya  errores los recoge
+//		Scanner error = new Scanner(procesoHijo.getErrorStream());
+//		while (error.hasNextLine()) {
+//		    System.out.println(error.nextLine());
+//		}
+		
 		// FALTA COMPROBAR QUE SIGNIFICADO TIENE EL CODIGO DEL HIJO
 		if (exitVal == -1) {
 			System.out.println("El argumento viene vacio");
@@ -48,6 +55,7 @@ public class Ejercicio1_Padre {
 		} else if (exitVal == 0) {
 			System.out.println("El argumento es un entero negativo");
 		}
+
 
 	}
 }
