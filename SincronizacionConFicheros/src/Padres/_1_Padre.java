@@ -14,7 +14,6 @@ public class _1_Padre {
 		System.out.println("==INTRODUCE UN NUMERO==");
 		String numero = teclado.nextLine();
 		File directorio = new File("bin");
-
 		
 		
 		// java indica que vamos a ejecutar
@@ -39,6 +38,9 @@ public class _1_Padre {
 		Process procesoHijo = pb.start();
 		
 		int exitVal=procesoHijo.waitFor();
+		if (exitVal > 127) {
+		    exitVal = exitVal - 256;
+		}
 		if (exitVal == -1) {
 			System.out.println("El argumento viene vacio");
 		} else if (exitVal == -2) {

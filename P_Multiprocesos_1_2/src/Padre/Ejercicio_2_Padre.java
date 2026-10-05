@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Ejercicio_2_Padre {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -53,19 +52,19 @@ public class Ejercicio_2_Padre {
 				OutputStream os = p.getOutputStream();
 
 				for (String e : entradaAceptadas) {
-					os.write((e+"\n").getBytes());
+					os.write((e + "\n").getBytes());
 					os.flush();
 				}
-				int exitVal=p.waitFor();
-				System.out.println("exitVal= "+exitVal);
-				if(exitVal==0) {
-					for(String s:entradaAceptadas) {
+				int exitVal = p.waitFor();
+				System.out.println("exitVal= " + exitVal);
+				if (exitVal == 0) {
+					for (String s : entradaAceptadas) {
 						System.out.println(s);
 					}
-					//Leemos la respuesta del hijo con un nuevo Scanner
-					Scanner leerHijo=new Scanner(p.getInputStream());
-					System.out.println("Suma total: "+leerHijo.nextLine());
-				}else if(exitVal==-1){
+					// Leemos la respuesta del hijo con un nuevo Scanner
+					Scanner leerHijo = new Scanner(p.getInputStream());
+					System.out.println("Suma total: " + leerHijo.nextLine());
+				} else if (exitVal == -1) {
 					System.out.println("Se metio algo que no es un numero");
 				}
 			}
