@@ -6,7 +6,6 @@ public class _2_Hijo {
 
 	public static void main(String[] args) {
 		
-		
 		//FALTA REVISAR ESTE CODIGO DEL HIJO
 		Scanner teclado = new Scanner(System.in);
 		String entradaDatos = "";

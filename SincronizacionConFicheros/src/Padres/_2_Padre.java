@@ -1,15 +1,9 @@
 package Padres;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class _2_Padre {
 
@@ -22,64 +16,28 @@ public class _2_Padre {
 		// suma.txt y
 		// error.txt.
 
-		ArrayList<String> entradaAceptadas = new ArrayList<String>();
-
-		try {
-			FileReader fichero = new FileReader("datos_2.txt"); // ES EL PROPIO FICHERO
-			BufferedReader lector = new BufferedReader(fichero); // LO TENEMOS QUE CERRAR
-			String linea;
-			do {
-				linea = lector.readLine(); // lee una linea completa, devuelve null al final
-				if (linea != null) {
-					entradaAceptadas.add(linea);
-				}
-			} while (linea != "*"); // cuando lee null hemos terminado el fichero
-			lector.close(); // cerramos y liberamos los recursos
-		} catch (Exception e) {
-			System.out.println("Error con el fichero");
-			System.out.println(e.getMessage());
-		}
 		File directorio = new File("bin");
 		ProcessBuilder pb = new ProcessBuilder("java", "Hijos._2_Hijo");
 		pb.directory(directorio);
 
 		try {
-			// comprobacion si el ArraList esta vacio
-			if (entradaAceptadas.size() > 1) {
-				// SI ENTRA AQUI = el arrayList no esta vacio
-				Process p = pb.start();
-				// 2.- Se lo mandamos al hijo (con salto de línea y flush)
-				OutputStream os = p.getOutputStream();
+			//ORDEN: PARA HACER SINCRONIZACION
+			//DIRECTORY
+			//REDIRECTORY
+			//START()
+			//WAITFOR()
+			
+			//REDIRIGIMOS LAS SALIDAS DEL HIJO
+			pb.redirectInput(new File("datos_2.txt"));
+			pb.redirectOutput(new File("suma_2.txt"));
+			pb.redirectError(new File("error.txt"));
 
-				for (String e : entradaAceptadas) {
-					os.write((e + "\n").getBytes());
-					os.flush();
-				}
-				// ESPERANDO LA ENTRADA DEL HIJO
-				int exitVal = p.waitFor();
-//				System.out.println("exitVal= " + exitVal);
+			//INICIAMOS CON LAS CONFIGURACIONES DE LOS redirect
+			Process p = pb.start();
 
-				if (exitVal == 0) {
-					Scanner leerHijo = new Scanner(p.getInputStream());
-					// Leemos la respuesta del hijo con un nuevo Scanner
-					// ESCRIBIMOS LA SUMA
-					int aprobado = leerHijo.nextInt();
-					File fEntrada = new File("suma_2.txt");
-					FileWriter fw = new FileWriter(fEntrada);
-					fw.write(aprobado);
-				} else if (exitVal == -1) {
-					// SI ENTRA EN EL CATCH DEL HIJO -- ES DECIR DA ERROR
-					// ESCRIBIBE EN EL FICHERO ERROR
-					BufferedWriter ficheroError = new BufferedWriter(new FileWriter("error.txt"));
-					ficheroError.write("ERROR RECIBIDO " + (byte) exitVal);
-					ficheroError.close();
-					
-					System.out.println("ERROR RECIBIDO DEL HIJO");
-					
-//					===   ME QUEDA ESTO- REVISAR CODIGO
+			// ESPERAMOS SALIDA HIJO QUE ENTRA AL PADRE
+//			int exitVal = p.waitFor();
 
-				}
-			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
