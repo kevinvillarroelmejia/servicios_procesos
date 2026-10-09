@@ -28,29 +28,30 @@ public class Escritor {
 	public static void main(String[] args) {
 
 		//numero de filas que se deben escribir
-		int numLineasEscritas=RANDOM.nextInt(10);
+//		int numLineasEscritas=RANDOM.nextInt(5)+5;
 		
 		//tiempo entre iteraciones
 		long tiempoEntreInteraciones=RANDOM.nextLong(100,1000); //entre 0.1 y 1 segundo
-		
+
 		//marca de bloqueo
-		File ficheroBloq=new File (FICHERO_LOCK);
-		
-		//FICHERO A ESCRIBIR
-		File fileEscrito=new File(FICHERO_ESCRITO);
-		
+		File ficheroBloq=new File (FICHERO_LOCK);		
 		try(FileOutputStream lockFos=new FileOutputStream(ficheroBloq)) {
+			//FICHERO A ESCRIBIR
+			File fileEscrito=new File(FICHERO_ESCRITO);
 			FileChannel canalBloq=lockFos.getChannel();
 			FileLock lock=canalBloq.lock();
 			FileOutputStream fos = new FileOutputStream(fileEscrito, true);
 			PrintWriter escritor=new PrintWriter(fileEscrito);
 			System.out.println("Establecido bloqueo para escribir los mensajes...");
-			for(int i=0;i<numLineasEscritas;i++) {
+			for(int i=0;i<10;i++) {
+				Thread.sleep(tiempoEntreInteraciones);
 				System.out.println("Lector: Escrito mensaje de iteración "+i);
 				escritor.println("Lector: Escrito mensaje de iteracion "+i);
+				escritor.flush();
 			}
+			escritor.close();
 		} catch (Exception e) {
-			
+			System.out.println("ERROR ESCRITOR");
 		}
 	}
 

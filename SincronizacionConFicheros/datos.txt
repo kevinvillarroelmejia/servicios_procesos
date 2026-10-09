@@ -1,0 +1,10 @@
+Lector: Escrito mensaje de iteracion 0
+Lector: Escrito mensaje de iteracion 1
+Lector: Escrito mensaje de iteracion 2
+Lector: Escrito mensaje de iteracion 3
+Lector: Escrito mensaje de iteracion 4
+Lector: Escrito mensaje de iteracion 5
+Lector: Escrito mensaje de iteracion 6
+Lector: Escrito mensaje de iteracion 7
+Lector: Escrito mensaje de iteracion 8
+Lector: Escrito mensaje de iteracion 9
