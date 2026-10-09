@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class _2_Hijo {
 
 	public static void main(String[] args) {
-		
-		//FALTA REVISAR ESTE CODIGO DEL HIJO
+
+		// FALTA REVISAR ESTE CODIGO DEL HIJO
 		Scanner teclado = new Scanner(System.in);
 		String entradaDatos = "";
 		int totalNumeros = 0;
@@ -16,9 +16,9 @@ public class _2_Hijo {
 				if (!entradaDatos.equals("*")) {
 					totalNumeros = totalNumeros + Integer.parseInt(entradaDatos);
 				}
-			} catch ( NumberFormatException  e) {
-				//NumberFormatException es la excepción que lanza Java cuando intentas 
-				//convertir un texto a número y el texto no tiene formato de número.
+			} catch (NumberFormatException e) {
+				// NumberFormatException es la excepción que lanza Java cuando intentas
+				// convertir un texto a número y el texto no tiene formato de número.
 				System.err.println(e.getMessage());
 				// LETRA (cualquier cosa que no sea número ni *)
 				System.exit(-1);
@@ -28,6 +28,4 @@ public class _2_Hijo {
 		System.exit(0);
 	}
 
-	}
-
-
+}
