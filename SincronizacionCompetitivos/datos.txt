@@ -1,0 +1,10 @@
+Escritor: Escrito mensaje de iteracion 0
+Escritor: Escrito mensaje de iteracion 1
+Escritor: Escrito mensaje de iteracion 2
+Escritor: Escrito mensaje de iteracion 3
+Escritor: Escrito mensaje de iteracion 4
+Escritor: Escrito mensaje de iteracion 5
+Escritor: Escrito mensaje de iteracion 6
+Escritor: Escrito mensaje de iteracion 7
+Escritor: Escrito mensaje de iteracion 8
+Escritor: Escrito mensaje de iteracion 9
