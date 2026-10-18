@@ -1,4 +1,4 @@
-package Ejercicio1;
+package Ejercicio1_ParImpar;
 
 public class Numero extends Thread {
 

@@ -1,4 +1,4 @@
-package Ejercicio1;
+package Ejercicio1_ParImpar;
 
 public class Main {
 
@@ -17,6 +17,7 @@ public class Main {
 		
 		hilo1.start();
 		hilo2.start();
+		
 		
 		
 	}
