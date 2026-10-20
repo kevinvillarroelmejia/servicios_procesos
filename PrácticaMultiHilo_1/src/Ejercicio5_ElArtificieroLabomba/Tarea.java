@@ -5,8 +5,6 @@ import java.util.Random;
 public class Tarea implements Runnable {
 
 	private static final Random RANDOM = new Random();
-	private Thread hiloArtificiero;
-
 	private boolean soyBomba;
 
 	public Tarea(boolean soyBomba) {
@@ -41,7 +39,6 @@ public class Tarea implements Runnable {
 
 	@Override
 	public void run() {
-		boolean bandera = false;
 		if (soyBomba) {
 			cuentaAtrasBomba();
 		} else {
