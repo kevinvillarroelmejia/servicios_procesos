@@ -31,7 +31,6 @@ public class Tarea implements Runnable {
 		System.out.println("El artificiero empezo a desactivar la bomba");
 		try {
 			int tiempoTramo = (int) RANDOM.nextLong(9500, 10501);
-//			Tarea bomba=new Tarea();
 			Thread.sleep(tiempoTramo);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
