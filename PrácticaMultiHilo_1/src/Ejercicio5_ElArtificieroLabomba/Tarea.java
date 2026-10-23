@@ -19,22 +19,24 @@ public class Tarea implements Runnable {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.out.println("Artificiero acabo");
+//				e.printStackTrace();
+				return ;
 			}
 		}
 		System.out.println("La bomba explota");
 	}
-	// metodo sin acabar
 	public void desactivarBomba() {
 		System.out.println("El artificiero empezo a desactivar la bomba");
 		try {
 			int tiempoTramo = (int) RANDOM.nextLong(9500, 10501);
 			Thread.sleep(tiempoTramo);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			System.out.println("El artificiero a muerto");
+			return;
 		}
-		System.out.println("El artificiero desactivo la bomba");
+		System.out.println("El artificiero _DESACTIVO_ la bomba");
 	}
 
 	@Override
