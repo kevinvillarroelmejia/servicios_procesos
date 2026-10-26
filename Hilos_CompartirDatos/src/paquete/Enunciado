@@ -1,0 +1,27 @@
+CLASE CONTADOR:
+    int contador
+    
+    getContador
+    
+    sumar()
+        contador++;
+
+
+
+
+OBjeto Hilo(Contador miContador)
+
+en el run bucle de 5000 iteraciones
+    micontadorSumar()
+
+
+
+Main
+crear 5 hilos recibe la misma instancia
+arranque 5 hilos 
+mientras quede un hilo vivo ->
+    Sleep(100)
+    
+    
+la variable final tiene que dar 25000
+
