@@ -19,13 +19,6 @@ public class Arbitro {
 		turno++;
 	}
 
-	public int getAzar() {// muestra el resultado
-		return azar;
-	}
-
-	public int getTurno() {
-		return turno;
-	}
 
 	// no se comprobara el numero de otro numero hasta que termine el que esta
 	// utilizando
