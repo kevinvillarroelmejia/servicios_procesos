@@ -7,7 +7,6 @@ public class Jugador extends Thread {
 
 	private int idJugador;
 	private Arbitro arbitro;
-	
 
 	public Jugador(int idJudador, Arbitro arbitro) {
 		this.idJugador = idJudador;
@@ -21,11 +20,16 @@ public class Jugador extends Thread {
 
 	@Override
 	public void run() {
-		int azar=(int) RANDOM.nextLong(1, 11);
-		while (!arbitro.comprobarNumeroAzar(this, azar)){
-			if (arbitro.idJugadorCorrecto(this)) {
-				
+		try {
+		while (!arbitro.isJuegoAcabado()) { //comprueba si el anterior hilo termino el juego
+			if (arbitro.idJugadorCorrecto(this)) {//comprueba si es el turno del hilo que coge run
+					Thread.sleep(100);
+					int numIntento = (int) RANDOM.nextLong(1, 11); //intento de cada jugador
+					arbitro.comprobarNumeroAzar(this, numIntento);
+				}
 			}
+		}catch (Exception e) {
+			e.getMessage();
 		}
 	}
 }
