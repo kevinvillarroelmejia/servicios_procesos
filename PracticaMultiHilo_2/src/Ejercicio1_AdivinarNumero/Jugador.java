@@ -20,6 +20,7 @@ public class Jugador extends Thread {
 
 	@Override
 	public void run() {
+<<<<<<< HEAD
 		boolean bandera = false;
 		System.out.println("NUMERO A ADIVINAR: " + arbitro.getAzar());
 		try {
@@ -32,9 +33,23 @@ public class Jugador extends Thread {
 					}
 				}
 
+=======
+		try {
+		while (!arbitro.isJuegoAcabado()) { //comprueba si el anterior hilo termino el juego
+			if (arbitro.idJugadorCorrecto(this)) {//comprueba si es el turno del hilo que coge run
+					Thread.sleep(100);
+					int numIntento = (int) RANDOM.nextLong(1, 11); //intento de cada jugador
+					arbitro.comprobarNumeroAzar(this, numIntento);
+				}
+>>>>>>> branch 'master' of https://github.com/kevinrashiid/servicios_procesos.git
 			}
+<<<<<<< HEAD
 		} catch (Exception e) {
 			e.getStackTrace();
+=======
+		}catch (Exception e) {
+			e.getMessage();
+>>>>>>> branch 'master' of https://github.com/kevinrashiid/servicios_procesos.git
 		}
 	}
 }
