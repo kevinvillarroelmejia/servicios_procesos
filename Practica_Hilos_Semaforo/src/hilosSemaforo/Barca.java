@@ -7,6 +7,7 @@ public class Barca implements Runnable{
 	//ponerle prioridad a una barca
 	
 	
+	
 
 	
 	@Override
