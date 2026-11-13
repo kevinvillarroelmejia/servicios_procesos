@@ -41,4 +41,7 @@ public class Arbitro {
 		}
 		return bandera;
 	}
+	public int getAzar() {
+		return azar;
+	}
 }
