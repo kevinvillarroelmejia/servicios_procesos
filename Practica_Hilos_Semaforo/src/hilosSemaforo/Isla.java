@@ -22,16 +22,18 @@ public class Isla {
 	public boolean rescatarNaufragos() {
 		boolean bandera=false;
 		try {
-			System.out.println("La balsa actual es la Balsa " + barca.getIdBarca());
 			this.semaforo.acquire();
 			synchronized (this) {
 				if (numNaufragos > 15) {
 					numNaufragos = numNaufragos - 15;
+					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a 15");
 					bandera=true;
 				} else if (numNaufragos < 15) {
 					numNaufragos = numNaufragos - numNaufragos;
+					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a "+numNaufragos);
 					bandera=true;
 				} else if (numNaufragos == 0) {
+					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a "+numNaufragos);
 					bandera=false;
 				}
 			}
