@@ -7,7 +7,10 @@ public class Isla {
 	private static final Random RANDOM = new Random();
 
 	private int numNaufragos = (int) RANDOM.nextLong(800, 1001); // entre 800 y 1000 Naufragos
-	private Barca barca;
+	
+	//cuando son menos de 15 los que quedan no sabemos 
+	//cuantos son los que vamos a rescatar
+	private int rescatadosNum;
 
 	Semaphore semaforo;
 
@@ -19,28 +22,29 @@ public class Isla {
 		return numNaufragos;
 	}
 
-	public boolean rescatarNaufragos() {
-		boolean bandera=false;
+	public int rescatarNaufragos() {
+		int numeroRescatados=0;
 		try {
 			this.semaforo.acquire();
 			synchronized (this) {
 				if (numNaufragos > 15) {
 					numNaufragos = numNaufragos - 15;
-					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a 15");
-					bandera=true;
+					numeroRescatados=15;
 				} else if (numNaufragos < 15) {
-					numNaufragos = numNaufragos - numNaufragos;
-					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a "+numNaufragos);
-					bandera=true;
+					numeroRescatados = numNaufragos - numNaufragos;
 				} else if (numNaufragos == 0) {
-					System.out.println("La balsa actual es "+barca.getIdBarca()+" y rescatamos a "+numNaufragos);
-					bandera=false;
+					numeroRescatados=0;
 				}
+				
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		return bandera;
+		this.semaforo.release();
+		return numeroRescatados;
+	}
+	public int getRescatadosNum() {
+		return rescatadosNum;
 	}
 
 }
