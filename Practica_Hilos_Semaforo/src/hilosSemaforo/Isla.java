@@ -27,10 +27,10 @@ public class Isla {
 		try {
 			this.semaforo.acquire();
 			synchronized (this) {
-				if (numNaufragos > 15) {
+				if (numNaufragos >= 15) {
 					numNaufragos = numNaufragos - 15;
 					numeroRescatados=15;
-				} else if (numNaufragos < 15) {
+				} else if (numNaufragos <= 15) {
 					numeroRescatados = numNaufragos - numNaufragos;
 				} else if (numNaufragos == 0) {
 					numeroRescatados=0;
