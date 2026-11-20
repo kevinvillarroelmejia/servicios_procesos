@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+
 public class Main_Naufragos {
 
 	public static void main(String[] args) {
@@ -24,6 +25,7 @@ public class Main_Naufragos {
 		Barca b3Hilo = new Barca(isla);
 		Barca b4Hilo = new Barca(isla);
 		Barca b5Hilo = new Barca(isla);
+		
 		try {
 			ExecutorService executor = Executors.newFixedThreadPool(6);
 			executor.submit(b1Hilo);
@@ -31,11 +33,14 @@ public class Main_Naufragos {
 			executor.submit(b3Hilo);
 			executor.submit(b4Hilo);
 			executor.submit(b5Hilo);
+			
+			executor.shutdown();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
+		
 
 	}
 

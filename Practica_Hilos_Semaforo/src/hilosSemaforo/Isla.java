@@ -16,6 +16,7 @@ public class Isla {
 
 	public Isla(Semaphore semaforo) {
 		this.semaforo = semaforo;
+		System.out.println("Total: "+numNaufragos);
 	}
 
 	public int getNumNaufragos() {
@@ -26,23 +27,29 @@ public class Isla {
 		int numeroRescatados=0;
 		try {
 			this.semaforo.acquire();
+			//el synchronized siempre va en la clase comun
 			synchronized (this) {
 				if (numNaufragos >= 15) {
 					numNaufragos = numNaufragos - 15;
 					numeroRescatados=15;
-				} else if (numNaufragos <= 15) {
-					numeroRescatados = numNaufragos - numNaufragos;
-				} else if (numNaufragos == 0) {
-					numeroRescatados=0;
+				} else if (numNaufragos < 15) {
+					numeroRescatados = numNaufragos;
+					numNaufragos=0; //actulizamos 
 				}
-				
 			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		this.semaforo.release();
 		return numeroRescatados;
 	}
+	
+	
 	public int getRescatadosNum() {
 		return rescatadosNum;
 	}
