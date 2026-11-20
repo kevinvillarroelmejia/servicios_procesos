@@ -28,12 +28,15 @@ public class Main_Naufragos {
 		
 		try {
 			ExecutorService executor = Executors.newFixedThreadPool(6);
+			//Iniciamos el pool de hilos
+			executor.submit(reloj);
 			executor.submit(b1Hilo);
 			executor.submit(b2Hilo);
 			executor.submit(b3Hilo);
 			executor.submit(b4Hilo);
 			executor.submit(b5Hilo);
 			
+			//Cerramos el pool de hilos
 			executor.shutdown();
 			
 
