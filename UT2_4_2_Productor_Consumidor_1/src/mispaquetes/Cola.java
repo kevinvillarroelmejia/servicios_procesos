@@ -1,10 +1,10 @@
 package mispaquetes;
 
-public class Cola {
+public class Cola { //clase COMUN
     private int numero;
     private boolean disponible = false;//inicialmente cola vacia
 
-    public synchronized int get() {
+    public synchronized int get() { //CONSEGUIR NUMERO
     	if(disponible) {
     		disponible = false; //se pone cola vacía    		
             return numero;      //se devuelve
@@ -13,7 +13,7 @@ public class Cola {
     	}	   			    	 
     }
 
-    public synchronized void put(int valor) {   
+    public synchronized void put(int valor) {   //PONER NUMERO
         numero = valor;    //coloca valor en la cola 
         disponible = true; //disponible para consumir, cola llena        
     }

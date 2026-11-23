@@ -1,10 +1,9 @@
 package mispaquetes;
-
 public class Productor extends Thread {
     private Cola cola;
     private int n;
 
-    public Productor(Cola c, int n) {
+    public Productor(Cola c, int n) { //LA COLA EN COMUN , EL NUMERO A CONSEGUIR
         cola = c;
         this.n = n;
     }

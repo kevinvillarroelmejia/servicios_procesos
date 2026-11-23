@@ -4,7 +4,7 @@ public class Cola {
     private int numero;
     private boolean disponible = false;//inicialmente cola vacia
 
-    public synchronized int get() {
+    public synchronized int get() { //SE RECOGE DE LA COLA
     	  while (!disponible) {
     	    try {
     	          wait();
@@ -16,7 +16,7 @@ public class Cola {
     	  return numero;
     	}
 
-    public synchronized void put(int valor) {
+    public synchronized void put(int valor) { //SE AGREGA A LA COLA
     	  while (disponible){
     	    try {
     	          wait();

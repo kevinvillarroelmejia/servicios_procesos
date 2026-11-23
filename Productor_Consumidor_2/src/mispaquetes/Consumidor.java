@@ -1,10 +1,9 @@
 package mispaquetes;
-
 public class Consumidor extends Thread {
     private Cola cola;
     private int n;
 
-    public Consumidor(Cola c, int n) {
+    public Consumidor(Cola c, int n) {//LA CLASE EN COMUN , EL NUMERO A CONSEGUIR 
         cola = c;
         this.n = n;
     }
