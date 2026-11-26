@@ -18,6 +18,7 @@ public class Isla {
 		this.semaforo = semaforo;
 		System.out.println("Total: "+numNaufragos);
 	}
+	
 
 	public int getNumNaufragos() {
 		return numNaufragos;
