@@ -1,0 +1,20 @@
+Empaquetador: 
+	//Hilos(3) que recoge de la estanteria y "empaqueta"
+	//uno por tipo de producto
+	//cada empaquetador se centra en recoger su tipo de producto(1,2 o 3) ignora los demas
+	//el empaquetador tarda 100ms en recoger su pedido
+	//para empaquetar tardan entre 0 y 500ms  (tiempo que tarda el hilo empaquetador en volver a intentar
+	//coger otro producto).
+	// cada empaquetador cuenta cuantos paquetes hizo
+
+Colocador:
+	//hilo que coloca los 3 productos - SOLO EN POSICIONES LIBRES
+	//si no tiene espacio para colocar espera a que los Empaquetadores recogan
+	//colocamos un producto cada cierto tiempo entre 0 y 250ms
+	//el producto a colocar sera aletorio (son numeros pueden ser 1,2 o 3)
+	//cada vez que el robot coloca un producto lo cuenta ++
+	//el colocador debe dar 20 iteraciones, despues se para todo
+	
+	
+siempre se necesitara un metodo que si la cadena esta completa llena 
+otro si esta completamente vacia
